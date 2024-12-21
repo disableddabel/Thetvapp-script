@@ -12,3 +12,31 @@ A Python script to fetch streaming data from `thetvapp.io` API and generate an M
 ## 📦 Installation
 
 1. Clone this repository:
+
+
+
+
+2. Navigate into the project folder:
+
+3. Install dependencies:
+
+
+---
+
+## ⚙️ Configuration
+
+Edit the `config.py` file:
+
+- **BASE_URL**: Replace with the API endpoint.  
+- **TOKEN**: Add your authentication token.  
+- **OUTPUT_FILE**: Customize output filename if desired.
+
+---
+
+## 🛠️ Usage
+
+1. Run the script:
+
+
+
+2. Locate your generated playlist:
