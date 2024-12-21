@@ -1,0 +1,44 @@
+Steps to Extract M3U Links (Legally & Safely):
+1️⃣ Inspect Network Traffic (Browser DevTools)
+
+
+Open DevTools in your browser (Right-click → Inspect → Network Tab).
+Navigate to thetvapp.io and play a stream.
+Filter network requests by XHR/Fetch or look for files ending with .m3u8.
+Copy the URL for the stream, which might look like:
+https://cdn.thetvapp.io/streams/channel123/index.m3u8
+2️⃣ Fetch M3U Links via API
+If thetvapp.io provides an API:
+NOTE THIS IS NOT A WORKING VERISON
+Check their developer documentation or contact support for API access.
+Use the provided API to fetch stream links programmatically.
+Example Python snippet:
+
+import requests
+
+# API Configuration
+BASE_URL = "https://thetvapp.io/api/v1/streams"
+TOKEN = "your_api_token_here"  # Replace with your token
+
+headers = {"Authorization": f"Bearer {TOKEN}"}
+
+# Fetch channels
+response = requests.get(BASE_URL, headers=headers)
+if response.status_code == 200:
+    data = response.json()
+    for channel in data['channels']:
+        print(f"Name: {channel['name']}, URL: {channel['stream_url']}")
+else:
+    print("Failed to fetch streams:", response.status_code)
+3️⃣ Generate M3U Playlist
+Transform the extracted URLs into M3U format:
+
+#EXTM3U
+#EXTINF:-1 tvg-logo="http://logo.png",Channel 1
+http://stream1.m3u8
+#EXTINF:-1 tvg-logo="http://logo2.png",Channel 2
+http://stream2.m3u8
+⚠️ Important Notes
+Terms of Use: Check thetvapp.io's terms and conditions before using their data.
+Authentication Tokens: Some streams may require dynamic tokens or session keys.
+Legal Compliance: Ensure you are authorized to access and share these links.
