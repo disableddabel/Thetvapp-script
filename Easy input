@@ -1,0 +1,85 @@
+
+ChatGPT said:
+
+Simplified Input Version 🖥️✨
+
+Here’s a user-friendly version of the M3U Playlist Generator where users can easily input their details via prompts when running the script.
+
+Updated Code (Easy Input)
+import requests
+
+
+def get_user_input():
+    """Prompt user for easy input."""
+    print("📺 M3U Playlist Generator - Easy Setup\n")
+    base_url = input("Enter the API Base URL (e.g., https://thetvapp.io/api/v1/streams): ").strip()
+    token = input("Enter your API Token: ").strip()
+    output_file = input("Enter output filename (default: playlist.m3u): ").strip() or "playlist.m3u"
+    return base_url, token, output_file
+
+
+def fetch_streams(base_url, headers):
+    """Fetch streams from API."""
+    try:
+        response = requests.get(base_url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        print(f"❌ Error fetching streams: {e}")
+        return None
+
+
+def generate_m3u(data):
+    """Generate M3U playlist content."""
+    m3u_content = "#EXTM3U\n"
+    for item in data.get('channels', []):  # Adjust 'channels' to match API response
+        name = item.get('name', 'Unknown Channel')
+        logo = item.get('logo', '')
+        url = item.get('stream_url', '')
+        m3u_content += f"#EXTINF:-1 tvg-logo=\"{logo}\",{name}\n{url}\n"
+    return m3u_content
+
+
+def save_to_file(content, filename):
+    """Save generated M3U content to file."""
+    with open(filename, "w") as file:
+        file.write(content)
+    print(f"✅ M3U file saved as: {filename}")
+
+
+if __name__ == "__main__":
+    # User Input
+    base_url, token, output_file = get_user_input()
+
+    # Authentication Header
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+    }
+
+    # Fetch and Generate M3U
+    print("\n🔄 Fetching data...")
+    data = fetch_streams(base_url, headers)
+    if data:
+        print("✅ Data fetched successfully!")
+        m3u_content = generate_m3u(data)
+        save_to_file(m3u_content, output_file)
+    else:
+        print("❌ Failed to fetch data or generate playlist.")
+Key Features in This Version:
+Interactive Input: Prompts users for details instead of hardcoding values.
+Defaults: Automatically fills in default filenames if none are provided.
+Clear Output: Progress messages for better user experience.
+Simple Execution: No need to modify files—just run the script.
+🛠️ Steps to Run:
+pip install requests
+python main.py
+Example Inputs:
+
+Enter the API Base URL: https://thetvapp.io/api/v1/streams
+Enter your API Token: my-secret-token
+Enter output filename (default: playlist.m3u):
+Output:
+🔄 Fetching data...
+✅ Data fetched successfully!
+✅ M3U file saved as: playlist.m3u
