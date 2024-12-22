@@ -1,0 +1,145 @@
+### **Windows Guide: M3U Playlist Generator 🖥️📺**  
+
+Here’s a **step-by-step guide** for setting up and running the **M3U Playlist Generator** on Windows.  
+
+---
+
+## **1️⃣ Prerequisites**  
+
+### **1. Install Python**  
+1. **Download Python**:  
+   Go to [python.org](https://www.python.org/downloads/) and download the latest version.  
+2. **Install Python**:  
+   - During installation, **check the box** for `Add Python to PATH`.  
+   - Click **Install Now**.  
+
+---
+
+### **2. Install Dependencies**  
+Open **Command Prompt** (Search → `cmd`) and install the required libraries:  
+
+```bash
+pip install requests streamlit
+```
+
+---
+
+## **2️⃣ Download or Clone the Project**  
+
+### **Option 1: Download ZIP**  
+1. Go to the **GitHub repository** (replace with your repo link):  
+   ```
+   https://github.com/yourusername/m3u-playlist-playground
+   ```
+2. Click **Code → Download ZIP**.  
+3. Extract the ZIP file into a folder, e.g., `C:\m3u-playlist`.  
+
+### **Option 2: Clone via Git**  
+1. Install **Git** from [git-scm.com](https://git-scm.com/).  
+2. Clone the repository:  
+   ```bash
+   git clone https://github.com/yourusername/m3u-playlist-playground.git
+   ```
+3. Navigate to the folder:  
+   ```bash
+   cd m3u-playlist-playground
+   ```
+
+---
+
+## **3️⃣ Run the Script**  
+
+### **Option 1: Command Line Version**  
+1. Navigate to the project folder:  
+   ```bash
+   cd m3u-playlist-generator
+   ```
+2. Run the script:  
+   ```bash
+   python src/main.py
+   ```
+3. **Input Details** when prompted:
+   ```
+   Enter the API Base URL: https://thetvapp.io/api/v1/streams
+   Enter your API Token: my-secret-token
+   Enter output filename (default: playlist.m3u):
+   ```
+4. **Check Output File**:  
+   A `playlist.m3u` file will appear in the same folder.  
+
+---
+
+### **Option 2: Web Playground Version**  
+1. Navigate to the folder:  
+   ```bash
+   cd m3u-playlist-playground/app
+   ```
+2. Start the **Streamlit App**:  
+   ```bash
+   streamlit run app.py
+   ```
+3. **Open Browser**:  
+   Streamlit will automatically open your browser to **`http://localhost:8501`**.  
+4. Fill in details using the sidebar and click **Generate Playlist**.  
+5. Click **Download Playlist** to save the file locally.  
+
+---
+
+## **4️⃣ Optional Enhancements**  
+
+### **Create a Batch File (.bat)**  
+For quick execution, create a `.bat` file:  
+
+```plaintext
+@echo off
+cd C:\m3u-playlist
+python src/main.py
+pause
+```
+
+Save it as **`run_playlist.bat`** and double-click to run.  
+
+---
+
+## **5️⃣ Troubleshooting**  
+
+1. **Python Not Recognized**:  
+   Add Python to **PATH** manually:  
+   ```
+   setx PATH "%PATH%;C:\Python39\Scripts\;C:\Python39\"
+   ```
+2. **Missing Dependencies**:  
+   ```
+   pip install -r requirements.txt
+   ```
+3. **Port Already in Use (Streamlit)**:  
+   ```
+   streamlit run app.py --server.port 8502
+   ```
+4. **Permission Issues**:  
+   Run the Command Prompt as **Administrator**.  
+
+---
+
+## **6️⃣ Deploying to GitHub**  
+1. **Initialize Git**:  
+   ```bash
+   git init
+   ```
+2. **Add Files**:  
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   ```
+3. **Push to GitHub**:  
+   ```bash
+   git remote add origin https://github.com/yourusername/m3u-playlist-playground.git
+   git push origin main
+   ```
+
+---
+
+### 🎉 **Done! Ready for use.**  
+
+Let me know if you need help automating any part of this!  
+[Click here to access our prompt library!](https://ko-fi.com/s/277d07bae3)
