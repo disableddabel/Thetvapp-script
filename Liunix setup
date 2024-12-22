@@ -1,0 +1,101 @@
+Linux Guide: M3U Playlist Generator 🖥️🐧
+Follow this step-by-step guide to set up and run the M3U Playlist Generator on Linux.
+
+1️⃣ Prerequisites
+
+1. Install Python
+Most Linux distributions come with Python pre-installed.
+Check the version:
+
+python3 --version
+If Python is not installed, run:
+
+sudo apt update
+sudo apt install python3 python3-pip -y
+2. Install Dependencies
+pip3 install requests streamlit
+2️⃣ Download or Clone the Project
+
+Option 1: Download ZIP
+Go to the GitHub repository (replace with your repo link):
+https://github.com/yourusername/m3u-playlist-playground
+Download the ZIP file.
+Extract it:
+unzip m3u-playlist-playground.zip
+cd m3u-playlist-playground
+Option 2: Clone via Git
+Install Git if not already installed:
+sudo apt install git -y
+Clone the repository:
+git clone https://github.com/yourusername/m3u-playlist-playground.git
+Navigate to the folder:
+cd m3u-playlist-playground
+3️⃣ Run the Script
+
+Option 1: Command Line Version
+Go to the folder:
+cd m3u-playlist-generator/src
+Run the script:
+python3 main.py
+Input Details when prompted:
+Enter the API Base URL: https://thetvapp.io/api/v1/streams
+Enter your API Token: my-secret-token
+Enter output filename (default: playlist.m3u):
+Output File Location:
+Check the folder for playlist.m3u.
+Option 2: Web Playground Version
+Go to the folder:
+cd m3u-playlist-playground/app
+Start the Streamlit App:
+streamlit run app.py
+Open Browser:
+Streamlit will automatically open your browser to http://localhost:8501.
+Fill in details using the sidebar and click Generate Playlist.
+Click Download Playlist to save the file.
+4️⃣ Optional Enhancements
+
+1. Create a Shell Script for Quick Execution
+Create a script file, e.g., run.sh:
+
+#!/bin/bash
+cd /home/user/m3u-playlist-playground/src
+python3 main.py
+Make it executable:
+
+chmod +x run.sh
+Run with:
+
+./run.sh
+2. Set Up Desktop Shortcut
+Create a file:
+nano ~/Desktop/Playlist.desktop
+Add content:
+[Desktop Entry]
+Name=M3U Playlist Generator
+Exec=/home/user/m3u-playlist-playground/run.sh
+Type=Application
+Terminal=true
+Icon=utilities-terminal
+Save and make it executable:
+chmod +x ~/Desktop/Playlist.desktop
+5️⃣ Troubleshooting
+
+Permission Denied Errors:
+sudo chmod -R 755 /path/to/project
+Python Version Issues:
+Use python3 and pip3 instead of python and pip.
+Port Already in Use (Streamlit):
+streamlit run app.py --server.port 8502
+Dependencies Not Installed:
+pip3 install -r requirements.txt
+6️⃣ Deploying to GitHub
+
+Initialize Git:
+git init
+Add Files:
+git add .
+git commit -m "Initial commit"
+Push to GitHub:
+git remote add origin https://github.com/yourusername/m3u-playlist-playground.git
+git push origin main
+🎉 All Set! Ready to Generate Playlists!
