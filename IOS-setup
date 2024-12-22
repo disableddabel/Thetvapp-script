@@ -1,0 +1,61 @@
+iOS Guide: M3U Playlist Generator 📱🍏
+Since iOS doesn’t support direct execution of Python scripts, you’ll need to use third-party apps or cloud platforms to set up and run the M3U Playlist Generator.
+
+1️⃣ Option 1: Python Coding Apps on iOS
+
+1. Install a Python IDE App
+PythoniOS – Free app for running Python scripts.
+Download from App Store.
+Pyto – Advanced IDE with library support.
+Download from App Store.
+2. Setup the Environment
+Open the app and create a new Python file: main.py.
+Copy the M3U generator code (easy input version) and paste it into the file.
+Install dependencies in the app terminal:
+pip install requests
+3. Run the Script
+Execute the script directly from the IDE.
+Save the output file locally or export it via email, iCloud, or Files.
+2️⃣ Option 2: Use Streamlit Playground (Web Version)
+
+1. Host the App Online
+Deploy the Streamlit version on a cloud service like:
+Streamlit Cloud (streamlit.io).
+Render.com or Vercel.com.
+Access the hosted web app URL from Safari on your iPhone.
+2. Local Network Hosting
+If you have a Mac or Linux machine, you can host the app locally:
+
+streamlit run app.py --server.headless true --server.enableCORS false
+Access it from iOS Safari at:
+
+http://<your-local-IP>:8501
+3️⃣ Option 3: Cloud Platforms (Google Colab)
+
+1. Open Google Colab
+Go to colab.research.google.com from Safari.
+Create a new notebook.
+2. Copy the Code
+Paste the Python code into a Colab cell and install dependencies:
+
+!pip install requests
+3. Execute and Download Output
+Run the script.
+Use Google Drive to download the playlist.m3u file.
+4️⃣ Option 4: File Management Apps (Offline Playback)
+
+1. Use VLC Player
+Install VLC Media Player from the App Store.
+Open the generated M3U file in VLC.
+2. File Transfer Tools
+Use Documents by Readdle or FE File Explorer to transfer M3U files to your iPhone.
+Stream directly from the links in the M3U file.
+5️⃣ Troubleshooting
+
+File Not Opening:
+Ensure the app supports M3U format (e.g., VLC).
+Network Errors:
+Verify the API endpoint or token validity.
+Dependencies Missing:
+Add libraries using pip commands in coding apps or Colab.
+🎉 Done! M3U Playlist Generator Ready for iOS!
