@@ -2,6 +2,8 @@
 
 A Python script to fetch streaming data from `thetvapp.io` API and generate an M3U playlist file.
 
+AI SCRIPT + smart human 
+
 ## 🚀 Features
 - Fetch live stream data dynamically from API.
 - Generate a properly formatted `.m3u` playlist.
